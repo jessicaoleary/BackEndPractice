@@ -20,21 +20,20 @@ This app will use the following:
 - [ ] Install all dependencies: body-parser, ejs, express, method-override, mongoose
 - [ ] Install express sanitizer
 - [ ] Open app.js, add the following code:
-    var	bodyParser		    = require("body-parser"),
-        methodOverride		= require("method-override"),
-        expressSanitizer	= require("express-sanitizer"),
-        mongoose 			= require("mongoose"),
-        express				= require("express"),
-        app					= express();
-
-    // APP CONFIG
-    mongoose.connect("mongodb://localhost/restful_blog_app", { useNewUrlParser: true});
-    mongoose.set('useFindAndModify', false);
-    app.set("view engine", "ejs");
-    app.use(express.static("public"));
-    app.use(bodyParser.urlencoded({extended: true}));
-    app.use(expressSanitizer());
-    app.use(methodOverride("_method"));
+    - var	bodyParser		    = require("body-parser"),
+    - methodOverride		= require("method-override"),
+    - expressSanitizer	= require("express-sanitizer"),
+    - mongoose 			= require("mongoose"),
+    - express				= require("express"),
+    - app					= express();
+    - // APP CONFIG
+    - mongoose.connect("mongodb://localhost/restful_blog_app", { useNewUrlParser: true});
+    - mongoose.set('useFindAndModify', false);
+    - app.set("view engine", "ejs");
+    - app.use(express.static("public"));
+    - app.use(bodyParser.urlencoded({extended: true}));
+    - app.use(expressSanitizer());
+    - app.use(methodOverride("_method"));
 - [ ] Create folders public, public/stylesheets, views, views/partials
 - [ ] Create views/partials/header.ejs and views/partials/footer.ejs
 - [ ] Open header.ejs, add in biolerplate and Semantic UI, with note to check connection
