@@ -13,7 +13,7 @@ This app will use the following:
 
 ## Initial Workspace Set-Up
 - [ ] Create GoormIDE container "RESTfulPractice", link to this repository
-- [ ] Create directory "PlantsApp"
+- [ ] Create directory "TreesApp"
 - [ ] Create app.js file
 - [ ] Create json file with command "npm init"
 - [ ] Install MongoDB
@@ -34,6 +34,11 @@ This app will use the following:
     - app.use(bodyParser.urlencoded({extended: true}));
     - app.use(expressSanitizer());
     - app.use(methodOverride("_method"));
+    - // MONGOOSE/MODEL CONFIG (see blog documentation)
+    - // RESTFUL ROUTES
+    - app.get("/", function(req, res){ res.redirect("/trees")});
+    - // INDEX ROUTE
+    - app.get("/trees", function(req, res){ Tree.find({}, function(err, trees){ if(err){ console.log("ERROR"!) } else { // res.render index with data, res.render("index", {trees: trees}) } }) });
 - [ ] Create folders public, public/stylesheets, views, views/partials
 - [ ] Create views/partials/header.ejs and views/partials/footer.ejs
 - [ ] Open header.ejs, add in biolerplate and Semantic UI, with note to check connection
