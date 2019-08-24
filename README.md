@@ -25,5 +25,5 @@ This app will use the following:
 - [ ] Open footer.ejs, add in biolerplate, with note to check connection
 - [ ] Create views/index.ejs
 - [ ] Open index.ejs, add the following code:
-        * <% include ./partials/header %>
-        * <% include ./partials/footer %>
+        - <% include ./partials/header %>
+        - <% include ./partials/footer %>
