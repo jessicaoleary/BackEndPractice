@@ -1,4 +1,4 @@
-# RESTfulPractice_plants
+# RESTfulPractice_trees
 A plant database created for the purpose of practicing RESTful routes
 
 This app will use the following:
