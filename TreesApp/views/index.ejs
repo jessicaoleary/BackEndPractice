@@ -1,0 +1,28 @@
+<% include ./partials/header %>
+
+<div class="ui main text container">
+	<div class="ui huge header">Sacred Trees of the World</div>
+	<div class="ui top attached segment">
+		<div class="ui divided items">
+            <% trees.forEach(function(tree){ %>
+                <div class="name">
+                    <div class="image">
+                        <img src="<%= tree.image %>" >
+                    </div>
+                    <div class="content">
+                         <a class="header" href="/trees/<%= tree._id %>"><%=tree.name%></a>
+                         <div class="extra">
+                             <a class="ui floated basic violet button" href="/trees/<%= tree._id %>">
+                                 Read More
+                                 <i class="right chevron icon"></i>
+                             </a>
+                         </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+	</div>
+</div>
+
+
+<% include ./partials/footer %>
