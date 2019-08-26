@@ -12,14 +12,14 @@ This app will use the following:
 * Express Sanitizer
 
 ## Initial Workspace Set-Up
-- [ ] Create GoormIDE container "RESTfulPractice", link to this repository
-- [ ] Create directory "TreesApp"
-- [ ] Create app.js file
-- [ ] Create json file with command "npm init"
-- [ ] Install MongoDB
-- [ ] Install all dependencies: body-parser, ejs, express, method-override, mongoose
-- [ ] Install express sanitizer
-- [ ] Open app.js, add the following code:
+- [x] Create GoormIDE container "RESTfulPractice", link to this repository
+- [x] Create directory "TreesApp"
+- [x] Create app.js file
+- [x] Create json file with command "npm init"
+- [x] Install MongoDB
+- [x] Install all dependencies: body-parser, ejs, express, method-override, express-sanitizer, mongoose
+- [x] Install express sanitizer
+- [x] Open app.js, add the following code:
     - var	bodyParser		    = require("body-parser"),
     - methodOverride		= require("method-override"),
     - expressSanitizer	= require("express-sanitizer"),
@@ -39,11 +39,12 @@ This app will use the following:
     - app.get("/", function(req, res){ res.redirect("/trees")});
     - // INDEX ROUTE
     - app.get("/trees", function(req, res){ Tree.find({}, function(err, trees){ if(err){ console.log("ERROR"!) } else { // res.render index with data, res.render("index", {trees: trees}) } }) });
-- [ ] Create folders public, public/stylesheets, views, views/partials
-- [ ] Create views/partials/header.ejs and views/partials/footer.ejs
-- [ ] Open header.ejs, add in biolerplate and Semantic UI, with note to check connection
-- [ ] Open footer.ejs, add in biolerplate, with note to check connection
-- [ ] Create views/index.ejs
-- [ ] Open index.ejs, add the following code:
+    - 
+- [x] Create folders public, public/stylesheets, views, views/partials
+- [x] Create views/partials/header.ejs and views/partials/footer.ejs
+- [x] Open header.ejs, add in biolerplate, Semantic UI, link to app.css, navbar
+- [x] Open footer.ejs, add in biolerplate, with note to check connection
+- [x] Create views/index.ejs
+- [x] Open index.ejs, add the following code:
     - <% include ./partials/header %>
     - <% include ./partials/footer %>
