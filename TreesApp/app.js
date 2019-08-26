@@ -24,11 +24,11 @@ var treesSchema = new mongoose.Schema({
 var Tree = mongoose.model("Tree", treesSchema);
 
 // Create a new tree every time you run the app
-// Tree.create({
-// 	name: "Baobab",
-// 	image: "https://images.unsplash.com/photo-1564198729838-cb82ee0c733c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80",
-// 	body: "Native to India and the African Savannas, the baobab (scientific name: Adansonia digitata) is a national emblem of Madagascar. Due to its massive size, fascinating shape, and long aging (around 3,000 years), people believe the baobab holds the spirits of the dead, and that is why it is sacred in African culture. Throughout history, kings have organized their meetings under this tree, believing that it holds magical properties that could aid them in making wise decisions."
-// });
+Tree.create({
+ 	name: "Baobab",
+ 	image: "https://images.unsplash.com/photo-1564198729838-cb82ee0c733c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80",
+ 	body: "Native to India and the African Savannas, the baobab (scientific name: Adansonia digitata) is a national emblem of Madagascar. Due to its massive size, fascinating shape, and long aging (around 3,000 years), people believe the baobab holds the spirits of the dead, and that is why it is sacred in African culture. Throughout history, kings have organized their meetings under this tree, believing that it holds magical properties that could aid them in making wise decisions."
+});
 
 // RESTFUL ROUTES
 app.get("/", function(req, res){
