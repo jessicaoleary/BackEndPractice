@@ -53,9 +53,9 @@ app.get("/trees/new", function(req, res){
 });
 
 // CREATE ROUTE
-app.get("/trees", function(req, res){
+app.post("/trees", function(req, res){
 	//create tree
-	Blog.create(req.body.tree, function(err, newTree){
+	Tree.create(req.body.tree, function(err, newTree){
 		if(err){
 			res.render("new");
 		} else {
@@ -66,7 +66,7 @@ app.get("/trees", function(req, res){
 });
 
 // SHOW ROUTE
-app.get("trees/:id", function(req, res){
+app.get("/trees/:id", function(req, res){
 		Tree.findById(req.params.id, function(err, foundTree){
 			if(err){
 				res.render("Tree information could not be found");
