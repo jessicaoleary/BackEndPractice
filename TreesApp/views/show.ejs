@@ -12,9 +12,9 @@
                 <p><%- tree.body %></p>
             </div>
             <a class="ui orange basic button" href="/trees/<%= tree._id %>/edit">Edit</a>
-            <!-- <form id="delete" action="/trees/<%= tree._id %>?_method=DELETE" method="POST">
-                <button class="ui red basic button">Delete</button>
-            </form> -->
+            <form id="delete" action="/trees/<% tree._id %>?method=DELETE" method="POST">
+		<button class="ui red big basic button">Delete</button>
+	</form>
         </div>
     </div>
 	
