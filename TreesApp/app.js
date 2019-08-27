@@ -24,11 +24,11 @@ var treesSchema = new mongoose.Schema({
 var Tree = mongoose.model("Tree", treesSchema);
 
 // Create a new tree every time you run the app
-Tree.create({
- 	name: "Baobab",
- 	image: "https://images.unsplash.com/photo-1564198729838-cb82ee0c733c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80",
- 	body: "Native to India and the African Savannas, the baobab (scientific name: Adansonia digitata) is a national emblem of Madagascar. Due to its massive size, fascinating shape, and long aging (around 3,000 years), people believe the baobab holds the spirits of the dead, and that is why it is sacred in African culture. Throughout history, kings have organized their meetings under this tree, believing that it holds magical properties that could aid them in making wise decisions."
-});
+// Tree.create({
+// 	name: "Willow",
+// 	image: "https://images.unsplash.com/photo-1563136060-ccd30423de88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+// 	body: "The Willow in the tree alphabet stands for the female and lunar rhythms of life. She is water-seeking, thriving from preference on the damp margins of lakes and streams or across the low-lying water meadows. Water and the tidal movements of the sea are governed by the pull of the moon. The moon in its monthly rhythms is female, contrasting with the male sun's daily and yearly turnings. In several ways, the Celts held women in higher regard than we do today. On the material level, women were property owners, and whoever controlled the property controlled the marriage. Women of all types and appeared in the Celtic pantheon, the spiritual strength and life-giving qualities given by both female and male recognized equally.  There were many colleges of Druidesses - learned women and teachers - respected especially for their gifts of seer-ship, often expressed through dreams, or night visions."
+// });
 
 // RESTFUL ROUTES
 app.get("/", function(req, res){
@@ -53,9 +53,9 @@ app.get("/trees/new", function(req, res){
 });
 
 // CREATE ROUTE
-app.get("/trees", function(req, res){
+app.post("/trees", function(req, res){
 	//create tree
-	Blog.create(req.body.tree, function(err, newTree){
+	Tree.create(req.body.tree, function(err, newTree){
 		if(err){
 			res.render("new");
 		} else {
@@ -65,11 +65,11 @@ app.get("/trees", function(req, res){
 	});
 });
 
-// SHOW ROUTE
-app.get("trees/:id", function(req, res){
+// // SHOW ROUTE
+app.get("/trees/:id", function(req, res){
 		Tree.findById(req.params.id, function(err, foundTree){
 			if(err){
-				res.render("Tree information could not be found");
+				res.redirect("/trees");
 			} else {
 				res.render("show", {tree: foundTree});
 			}
@@ -77,10 +77,39 @@ app.get("trees/:id", function(req, res){
 	});
 
 // EDIT ROUTE
+app.get("/trees/:id/edit", function(req, res){
+	Tree.findById(req.params.id, function(err, foundTree){
+		if(err){
+			res.redirect("blogs");
+			console.log("Error with edit");
+		} else {
+			res.render("edit", {tree: foundTree});
+		}
+	})
+})
 
 // UPDATE ROUTE
+app.put("/trees/:id", function(req, res){
+	req.body.tree.body = req.sanitize(req.body.tree.body)
+	Tree.findByIdAndUpdate(req.params.id, req.body.tree, function(err, updatedTree){
+		if(err){
+			res.redirect("trees/");
+		} else {
+			res.redirect("/trees/" + req.params.id);
+		}
+	});
+});
 
 // DESTROY ROUTE
+app.delete("/trees/:id", function(req, res){
+	Tree.findByIdAndRemove(req.params.id, function(err){
+		if(err){
+			res.redirect("/trees");
+		} else {
+			res.redirect("/trees");
+		}
+	});
+});
 
 app.listen(3000, function(){
 	console.log("TREES SERVER IS RUNNING");
